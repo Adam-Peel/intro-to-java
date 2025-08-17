@@ -1,3 +1,5 @@
+import java.security.InvalidAlgorithmParameterException;
+
 public class Exercises_Ch1 {
 private static String welcomeJava = "Welcome to Java";
 private static String[] j = {"    J", "    J","J   J"," J J "};
@@ -34,6 +36,10 @@ private static String[] v = {"V     V", " V   V ","  V V  ","   V   "};
     populationEstimate();
     System.out.println("1.12 Average Speed KPH");
     System.out.println(averageSpeedKPH(24, 100, 35));
+    System.out.println("1.13 Cramer\'s Algebra");
+    
+      cramers(3.4, 50.2, 2.1, 0.55, 44.5, 5.9);
+      
   }
 
   private static void welcome() {
@@ -133,5 +139,20 @@ private static String[] v = {"V     V", " V   V ","  V V  ","   V   "};
     double time = (minutes + (seconds / 60)); 
     double distance = (miles * 1.6);
     return (distance / (time / 60));
+  }
+
+  private static void cramers(double a, double b, double c, double d, double e, double f) {
+    double x;
+    double y;
+    if (((a * d) - (b * c)) == 0) {
+      System.out.println("ad - bc cannot equal 0");
+    }
+
+    x = (((e * d) - (b * f)) / ((a * d) - (b * c)));
+    y = (((a * f) - (e * c)) / ((a * d) - (b * c)));
+
+    System.out.println("x is: " + x );
+    System.out.println("y is: " + y);
+
   }
 }
