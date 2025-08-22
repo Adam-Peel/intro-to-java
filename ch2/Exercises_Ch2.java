@@ -43,6 +43,8 @@ public class Exercises_Ch2 {
     System.out.println("Exercise 2.13 - Compound interest");
     int savings = input.nextInt();
     System.out.println("The value is: " + interestValue(savings));
+    System.out.println("Exercise 2.14 - BMI Conversion");
+    System.out.println(BMIInput());
   }
 
 public static int integerSum (int number) {
@@ -82,6 +84,42 @@ public static double interestValue (int capital) {
   }
 
   return total;
+}
+
+public static String BMIInput () {
+  Scanner input = new Scanner(System.in);
+  String weightRef = "";
+  String heightRef = "";
+  Double BMI = 0.0;
+  System.out.println("Press 1 if you'd like to enter your details in lb. and inches or 2 if you'd like to enter your details in kg and cm.");
+  int reference = input.nextInt();
+  if (reference == 1) {
+    weightRef = "lb";
+    heightRef = "inches";} 
+    else {
+      weightRef = "kg";
+      heightRef = "cm";}
+
+  System.out.println("Please enter your weight in " + weightRef + ", to one decimal place");
+  double weight = input.nextDouble();
+  System.out.println("Please enter your height in " + heightRef);
+  double height = input.nextDouble();
+
+  if (reference == 1) {
+    BMI = BMIImperial(weight, height);}
+  else {
+    BMI = BMIMetric(weight, height);}
+
+  return ("Given the input, your BMI is: " + BMI);  
+
+}
+ 
+public static double BMIMetric (double weight, double height) {
+  return weight / Math.pow((height / 100), 2);
+}
+
+public static double BMIImperial (double weight, double height) {
+  return (weight * 703) / Math.pow(height, 2);
 }
 
 }
