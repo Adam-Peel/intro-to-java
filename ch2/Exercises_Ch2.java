@@ -45,6 +45,9 @@ public class Exercises_Ch2 {
     System.out.println("The value is: " + interestValue(savings));
     System.out.println("Exercise 2.14 - BMI Conversion");
     System.out.println(BMIInput());
+    System.out.println("Exercise 2.15 - Geometry: Distance of two points");
+    System.out.println(pointDistance());
+    
   }
 
 public static int integerSum (int number) {
@@ -122,4 +125,23 @@ public static double BMIImperial (double weight, double height) {
   return (weight * 703) / Math.pow(height, 2);
 }
 
+public static String pointDistance() {
+  Scanner input = new Scanner(System.in);
+  double x1 = 0;
+  double x2 = 0;
+  double y1 = 0;
+  double y2 = 0;
+
+  System.out.println("Please enter the coordinates for the first point in the form of x y - e.g. 2.3 3");
+  x1 = input.nextDouble();
+  y1 = input.nextDouble();
+  System.out.println("Please enter the coordinates for the second point in the form of x y - e.g. 2.3 3");
+  x2 = input.nextDouble();
+  y2 = input.nextDouble();
+
+  double distance = Math.pow((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)), 0.5);
+
+ return "The distance between the two points is: " + distance;
+}
+ 
 }
