@@ -38,7 +38,11 @@ public class Exercises_Ch2 {
     System.out.println(integerSum(digits));
     System.out.println("Exercise 2.7 - Find the number of years.");
     System.out.println("Enter a number of minutes to convert into years and days");
-    
+    long minutes = input.nextLong();
+    System.out.println(minutesToYears(minutes));
+    System.out.println("Exercise 2.13 - Compound interest");
+    int savings = input.nextInt();
+    System.out.println("The value is: " + interestValue(savings));
   }
 
 public static int integerSum (int number) {
@@ -52,8 +56,32 @@ public static int integerSum (int number) {
   };
 
   count += numberToSum;
-
   return count;
+}
+
+public static String minutesToYears (long minutes) {
+  long minsInDay = 60 * 24; 
+  long days = minutes / minsInDay;
+  long years = days / 365;
+
+  if ( years > 0) {
+  return minutes + " minutes, is approximately: " + years + " years, and " + (days - (years * 365)) + " days.";
+  } else {
+    return minutes + " minutes, is approximately: " + (days - (years * 365)) + " days."; 
+  }
+}
+
+public static double interestValue (int capital) {
+  double rate = 5.00;
+  double monthlyInterest = (rate / 100) / 12;
+  int months = 6;
+  double total = capital * (1 + monthlyInterest);
+
+  for (int i = 1; i < months; i++) {
+    total = (capital + total) * (1 + monthlyInterest); 
+  }
+
+  return total;
 }
 
 }
