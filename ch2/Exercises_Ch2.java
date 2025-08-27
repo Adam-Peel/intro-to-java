@@ -47,7 +47,12 @@ public class Exercises_Ch2 {
     System.out.println(BMIInput());
     System.out.println("Exercise 2.15 - Geometry: Distance of two points");
     System.out.println(pointDistance());
-    
+    System.out.println("Exercise 2.16 - Geometry: Area of a hexagon");
+    System.out.println("Enter the length of a side to 1 dp");
+    double hexSide = input.nextDouble();
+    System.out.println( "The area of the hexagon is: " + ((3 * Math.sqrt(3)) / 2) * Math.pow(hexSide, 2));
+    System.out.println("Science: wind-chill temperature");
+    System.out.println(windChill());
   }
 
 public static int integerSum (int number) {
@@ -112,7 +117,7 @@ public static String BMIInput () {
     BMI = BMIImperial(weight, height);}
   else {
     BMI = BMIMetric(weight, height);}
-
+    input.close();
   return ("Given the input, your BMI is: " + BMI);  
 
 }
@@ -142,6 +147,18 @@ public static String pointDistance() {
   double distance = Math.pow((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)), 0.5);
 
  return "The distance between the two points is: " + distance;
+}
+
+public static String windChill() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Please enter the temperature in Farenheit");
+  double temp = input.nextDouble();
+  System.out.println("Please entre a wind speed in mph");
+  int windSpeed = input.nextInt();
+  double windSpeedFactor = Math.pow(windSpeed, 0.16);
+  double windChill = 35.74 + (0.6215 * temp) - (35.75 * windSpeedFactor) + (0.4275 * temp * windSpeedFactor);
+  
+  return "The wind chill index is: " + windChill;
 }
  
 }
