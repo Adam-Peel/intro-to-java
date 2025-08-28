@@ -9,6 +9,10 @@ public class Exercises {
   System.out.println(randomMonth());
   System.out.println("3.5 Future dates");
   System.out.println(futureDate());
+  System.out.println("3.8 - Sort three integers");
+  System.out.println(sortIntegers());
+  System.out.println("3.9 - Check ISBN");
+  System.out.println(ISBNCheck());
   }
 
 public static String quadratic() {
@@ -83,5 +87,74 @@ public static String dayProvider (int dayToProvide) {
     }
 }
 
+public static String sortIntegers() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Please enter 3 integers");
+  int a = input.nextInt();
+  int b = input.nextInt();
+  int c = input.nextInt();
+  int first = 0;
+  int second = 0;
+  int third = 0;
+
+  if (a == b && a == c) {
+    return "All integers are the same";
+  }
+
+  if (a < c && a < b) {
+    first = a;
+    if (b < c) {
+      second = b; 
+      third = c;
+    } else {
+      second = c;
+      third = b;
+    }
+  } else if (b < c && b < a) {
+    first = b;
+    if (a < c) {
+      second = a;
+      third = c;
+    } else {
+      second = c;
+      third = a;
+    }
+  } else {
+    first = c;
+    if (a < b) {
+      second = a;
+      third = b;
+    } else {
+      second = b;
+      third = a;
+    }
+  }
+  return first + " " + second + " " + third;
+}
+
+public static String ISBNCheck() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Please enter the first 9 digits of an ISBN code");
+  String ISBN = input.next();
+  
+  if (ISBN.length() != 9) {
+    return "Sorry, the input is invalid - it must be 9 digits long";
+  } 
+
+  int checksum = 0;
+
+    for (int i = 0; i < ISBN.length(); i++) {
+        int digit = Character.getNumericValue(ISBN.charAt(i));
+        checksum += digit * (i + 1);
+        }
+   
+
+  if (checksum % 11 == 10) {
+  return "The ISBN number is " + ISBN + "X";} else {
+    return "The ISBN number is " + ISBN + (checksum % 11);
+  }
+    
+}
 
 }
+
