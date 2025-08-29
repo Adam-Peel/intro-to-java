@@ -5,22 +5,25 @@ import java.util.Arrays;
 public class Exercises {
 
   public static void main (String[] args) {
-  System.out.println("3.1 - Algebra - Quadratic Equations");
-  System.out.println(quadratic());
-  System.out.println("3.4 Random month");
-  System.out.println(randomMonth());
-  System.out.println("3.5 Future dates");
-  System.out.println(futureDate());
-  System.out.println("3.8 - Sort three integers");
-  System.out.println(sortIntegers());
-  System.out.println("3.9 - Check ISBN");
-  System.out.println(ISBNCheck());
-  System.out.println("3.11 - Find number of days in month");
-  System.out.println(dayChecker());
-  System.out.println("3.15 - Lottery");
-  System.out.println(lotteryChecker());
-  System.out.println("3.19 - Perimeter of triangle");
-  System.out.println(triangleChecker());
+  // System.out.println("3.1 - Algebra - Quadratic Equations");
+  // System.out.println(quadratic());
+  // System.out.println("3.4 Random month");
+  // System.out.println(randomMonth());
+  // System.out.println("3.5 Future dates");
+  // System.out.println(futureDate());
+  // System.out.println("3.8 - Sort three integers");
+  // System.out.println(sortIntegers());
+  // System.out.println("3.9 - Check ISBN");
+  // System.out.println(ISBNCheck());
+  // System.out.println("3.11 - Find number of days in month");
+  // System.out.println(dayChecker());
+  // System.out.println("3.15 - Lottery");
+  // System.out.println(lotteryChecker());
+  // System.out.println("3.19 - Perimeter of triangle");
+  // System.out.println(triangleChecker());
+  System.out.println("3.21 - Science: Day of the week");
+  System.out.println(zellersChecker());
+
   }
 
 public static String quadratic() {
@@ -261,5 +264,33 @@ public static String triangleChecker() {
   return "The perimeter is: " + perimeter + " units in length"; 
 }
 
+public static String zellersChecker() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Enter year: (e.g. 2012):");
+  int year = input.nextInt();
+  System.out.println("Enter month: 1-12:");
+  int month = input.nextInt();
+  System.out.println("Enter the day of the month: 1 - 31");
+  int day = input.nextInt();
+
+  if (month == 2 && !isLeapYear(year) && day > 28) {
+    return "invalid input";
+  } else if (month ==2 && day > 29) {
+    return "invalid input";
+  }
+
+  if (month == 1 || month == 2) {
+    month = month + 12;
+    year--;
+  }
+
+  int numericDay = (day + (26 * (month + 1)/ 10) + (year % 100) + ((year % 100) / 4) + ((year / 100) / 4) + (5 * (year / 100))) % 7;
+
+  String[] days = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+  return "Day of the week is: " + days[numericDay];
+  }
+
 }
+
+
 
