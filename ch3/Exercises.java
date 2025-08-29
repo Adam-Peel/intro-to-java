@@ -13,6 +13,8 @@ public class Exercises {
   System.out.println(sortIntegers());
   System.out.println("3.9 - Check ISBN");
   System.out.println(ISBNCheck());
+  System.out.println("3.11 - Find number of days in month");
+  System.out.println(dayChecker());
   }
 
 public static String quadratic() {
@@ -146,14 +148,56 @@ public static String ISBNCheck() {
     for (int i = 0; i < ISBN.length(); i++) {
         int digit = Character.getNumericValue(ISBN.charAt(i));
         checksum += digit * (i + 1);
-        }
-   
+        }   
 
   if (checksum % 11 == 10) {
   return "The ISBN number is " + ISBN + "X";} else {
     return "The ISBN number is " + ISBN + (checksum % 11);
+  }    
+}
+
+public static String dayChecker() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Please enter the month and year as separate integers");
+  int month = input.nextInt();
+  int year = input.nextInt();
+
+  if (isLeapYear(year) && month == 2) {
+    return "February " + year + " has 29 days";
   }
-    
+
+  String monthToReport = "December";
+  int days = 0;
+
+  switch (month) {
+    case 1: days = 31; monthToReport = "January"; break;
+    case 2: days = 28; monthToReport = "February"; break;
+    case 3: days = 31; monthToReport = "March"; break;
+    case 4: days = 30; monthToReport = "April"; break;
+    case 5: days = 31; monthToReport = "May"; break;
+    case 6: days = 30; monthToReport = "June"; break;
+    case 7: days = 31; monthToReport = "July"; break;
+    case 8: days = 31; monthToReport = "August"; break;
+    case 9: days = 30; monthToReport = "September"; break;
+    case 10: days = 31; monthToReport = "October"; break;
+    case 11: days = 30; monthToReport = "November"; break;
+    case 12: days = 31; monthToReport = "December"; break;
+    default: days = 0; monthToReport = "Invalid month input"; break;
+  }
+
+  return monthToReport + " " + year + " has " + days + " days.";
+}
+
+public static boolean isLeapYear (int year) {
+  if (year % 400 == 0) {
+    return true;
+  }
+
+  if (year % 4 == 0 && year % 100 != 0) {
+    return true;
+  }
+
+  return false;
 }
 
 }
