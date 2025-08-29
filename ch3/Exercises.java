@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Exercises {
 
@@ -15,6 +17,8 @@ public class Exercises {
   System.out.println(ISBNCheck());
   System.out.println("3.11 - Find number of days in month");
   System.out.println(dayChecker());
+  System.out.println("3.15 - Lottery");
+  System.out.println(lotteryChecker());
   }
 
 public static String quadratic() {
@@ -198,6 +202,46 @@ public static boolean isLeapYear (int year) {
   }
 
   return false;
+}
+
+public static String lotteryChecker() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Please enter a random 3 digit integer to play");
+  int num = input.nextInt();
+  int randomNum = (int) (Math.random() * 1000);
+  int reward = 0;
+  int digitsMatched = 0;
+
+  System.out.println("The random number was: " + randomNum);
+
+  if (num == randomNum) {
+    reward = 10000;
+    return "You win £10,000!";
+  }
+
+  ArrayList<String> numToCheck = new ArrayList<>(Arrays.asList(Integer.toString(num).split("")));
+  ArrayList<String> numToCompare = new ArrayList<>(Arrays.asList(Integer.toString(randomNum).split("")));
+  
+
+   for (int i = 0; i < numToCheck.size(); i++) {
+        String digit = numToCheck.get(i);
+        for (int j = 0; j < numToCompare.size(); j++){
+          if (digit.equals(numToCompare.get(j))){
+            digitsMatched ++;
+            numToCompare.remove(j);
+            break;
+          }
+        }
+        }  
+
+if (digitsMatched == 0) {
+  return "Sorry, no digits matched";
+} else if (digitsMatched < 3) {
+  return "You won £1000!";
+} else {
+  return "You won £3000";
+}
+
 }
 
 }
