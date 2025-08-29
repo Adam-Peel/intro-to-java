@@ -19,6 +19,8 @@ public class Exercises {
   System.out.println(dayChecker());
   System.out.println("3.15 - Lottery");
   System.out.println(lotteryChecker());
+  System.out.println("3.19 - Perimeter of triangle");
+  System.out.println(triangleChecker());
   }
 
 public static String quadratic() {
@@ -242,6 +244,21 @@ if (digitsMatched == 0) {
   return "You won £3000";
 }
 
+}
+
+public static String triangleChecker() {
+  Scanner input = new Scanner(System.in);
+  System.out.println("Please enter the 3 sides of a triangle");
+  double a = input.nextDouble();
+  double b = input.nextDouble();
+  double c = input.nextDouble();
+
+  if (c > a + b || b > a + c || a > b + c) {
+    return "invalid input";
+  }
+
+  double perimeter = a + b + c;
+  return "The perimeter is: " + perimeter + " units in length"; 
 }
 
 }
