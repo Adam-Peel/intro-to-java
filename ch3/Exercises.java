@@ -21,10 +21,16 @@ public class Exercises {
   // System.out.println(lotteryChecker());
   // System.out.println("3.19 - Perimeter of triangle");
   // System.out.println(triangleChecker());
-  System.out.println("3.21 - Science: Day of the week");
-  System.out.println(zellersChecker());
-  System.out.println("3.22 - Geometry: Point in a circle");
-  System.out.println(circleChecker());
+  // System.out.println("3.21 - Science: Day of the week");
+  // System.out.println(zellersChecker());
+  // System.out.println("3.22 & 3.23 - Geometry: Point in a fixed circle and / or rectangle");
+  // System.out.println(circleChecker());
+  // System.out.println("3.24 - Random card picker");
+  // System.out.println(cardPicker());
+  // System.out.println("3.27 - Points in a triangle");
+  // System.out.println(triangleAreaChecker());
+  System.out.println("3.28 - Geometry: two rectangles");
+  System.out.println(dualRectangleChecker());
 
   }
 
@@ -313,6 +319,50 @@ public static String zellersChecker() {
     return circleReturn + "\n" + rectangleReturn;
   }
 
+  public static String cardPicker() {
+    String[] cards = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    String[] suits = {"Spades", "Clubs", "Diamonds", "Hearts"};
+
+    int randomCard = (int) (Math.random() * 14);
+    int randomSuit = (int) (Math.random() * 5);
+
+    return "The random card is: " + cards[randomCard] + " of " + suits[randomSuit];
+  }
+
+  public static String triangleAreaChecker() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter the x and y co-ordinates for a point");
+    double x = input.nextDouble();
+    double y = input.nextDouble();
+
+    if (x > 0 && x < 200 && y < (x / 2)) {
+      return "The point is in the triangle";
+    } else {
+      return "The point is not in the triangle";
+    }
+  }
+
+  public static String dualRectangleChecker() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter r1\'s center x-, y-coordinates, width, and height:");
+    double r1x = input.nextDouble();
+    double r1y = input.nextDouble();
+    double r1w = input.nextDouble();
+    double r1h = input.nextDouble();
+    System.out.println("Enter r2\'s center x-, y-coordinates, width, and height:");
+    double r2x = Math.pow(Math.pow(input.nextDouble(), 2), 0.5);
+    double r2y = Math.pow(Math.pow(input.nextDouble(), 2), 0.5);
+    double r2w = Math.pow(Math.pow(input.nextDouble(), 2), 0.5);
+    double r2h = Math.pow(Math.pow(input.nextDouble(), 2), 0.5);
+
+    if (r2x + (r2w / 2) <  r1x + (r1w / 2) && r2y + (r2h / 2) < r1y + (r1h / 2)) {
+      return "R2 is inside R1";
+    } else if ((r2x - (r2w / 2) < r1x + (r1w / 2) && r2x > r1x + (r1w / 2)) || (r2y - (r2h / 2) < r1y + (r1h / 2) && (r2y > r1y + (r1h / 2)))) {
+      return "R2 overlaps R1";
+    } else {
+      return "R2 does not overlap R1";
+    }
+  }
 }
 
 
