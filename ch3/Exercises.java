@@ -23,6 +23,8 @@ public class Exercises {
   // System.out.println(triangleChecker());
   System.out.println("3.21 - Science: Day of the week");
   System.out.println(zellersChecker());
+  System.out.println("3.22 - Geometry: Point in a circle");
+  System.out.println(circleChecker());
 
   }
 
@@ -288,6 +290,27 @@ public static String zellersChecker() {
 
   String[] days = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
   return "Day of the week is: " + days[numericDay];
+  }
+
+  public static String circleChecker() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter two integers to represent coordinates for a point ((x,y) - e.g. 4,5)");
+    double x = input.nextDouble();
+    double y = input.nextDouble();
+
+    double distance = Math.pow(Math.pow((0 - x), 2) + Math.pow((0 - y), 2), 0.5);
+    String circleCheck = "not in";
+    if (distance <= 10.0) {circleCheck = "in";}
+    String circleReturn = "Point: " + x + ", " + y + " - is " + circleCheck + " the circle";
+
+    String rectangleCheck = "not in";
+    if (Math.pow(x * x, 0.5) < 5.0 && Math.pow(y * y, 0.5) < 2.50) {
+      rectangleCheck = "in";
+    }
+
+    String rectangleReturn = "And is " + rectangleCheck + " the rectangle.";
+
+    return circleReturn + "\n" + rectangleReturn;
   }
 
 }
