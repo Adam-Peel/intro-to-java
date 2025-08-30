@@ -31,6 +31,8 @@ public class Exercises {
   // System.out.println(triangleAreaChecker());
   System.out.println("3.28 - Geometry: two rectangles");
   System.out.println(dualRectangleChecker());
+  System.out.println("3.29 - Geometry: two circles");
+  System.out.println(dualCircleChecker());
 
   }
 
@@ -361,6 +363,31 @@ public static String zellersChecker() {
       return "R2 overlaps R1";
     } else {
       return "R2 does not overlap R1";
+    }
+  }
+
+  public static String dualCircleChecker() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter circle 1\'s centre x and y coordinates, and the radius");
+    double c1x = input.nextDouble();
+    double c1y = input.nextDouble();
+    double c1radius = input.nextDouble();
+    System.out.println("Please enter circle 2\'s centre x and y coordinates, and the radius");
+    double c2x = input.nextDouble();
+    double c2y = input.nextDouble();
+    double c2radius = input.nextDouble();
+    
+    // Simple pythagorus to determine distance of line
+    double aSq = Math.pow((c1x - c2x), 2);
+    double bSq = Math.pow((c1y - c2y), 2);
+    double distance = Math.pow((aSq + bSq), 0.5);
+
+    if (distance <= c1radius - c2radius) {
+      return "Circle 2 is inside Circle 1";
+    } else if (distance <= c1radius + c2radius) {
+      return "Circle 2 is overlapping Circle 1";
+    } else {
+      return "Circle 2 is outside Circle 1";
     }
   }
 }
