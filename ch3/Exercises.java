@@ -5,30 +5,30 @@ import java.util.Arrays;
 public class Exercises {
 
   public static void main (String[] args) {
-  // System.out.println("3.1 - Algebra - Quadratic Equations");
-  // System.out.println(quadratic());
-  // System.out.println("3.4 Random month");
-  // System.out.println(randomMonth());
-  // System.out.println("3.5 Future dates");
-  // System.out.println(futureDate());
-  // System.out.println("3.8 - Sort three integers");
-  // System.out.println(sortIntegers());
-  // System.out.println("3.9 - Check ISBN");
-  // System.out.println(ISBNCheck());
-  // System.out.println("3.11 - Find number of days in month");
-  // System.out.println(dayChecker());
-  // System.out.println("3.15 - Lottery");
-  // System.out.println(lotteryChecker());
-  // System.out.println("3.19 - Perimeter of triangle");
-  // System.out.println(triangleChecker());
-  // System.out.println("3.21 - Science: Day of the week");
-  // System.out.println(zellersChecker());
-  // System.out.println("3.22 & 3.23 - Geometry: Point in a fixed circle and / or rectangle");
-  // System.out.println(circleChecker());
-  // System.out.println("3.24 - Random card picker");
-  // System.out.println(cardPicker());
-  // System.out.println("3.27 - Points in a triangle");
-  // System.out.println(triangleAreaChecker());
+  System.out.println("3.1 - Algebra - Quadratic Equations");
+  System.out.println(quadratic());
+  System.out.println("3.4 Random month");
+  System.out.println(randomMonth());
+  System.out.println("3.5 Future dates");
+  System.out.println(futureDate());
+  System.out.println("3.8 - Sort three integers");
+  System.out.println(sortIntegers());
+  System.out.println("3.9 - Check ISBN");
+  System.out.println(ISBNCheck());
+  System.out.println("3.11 - Find number of days in month");
+  System.out.println(dayChecker());
+  System.out.println("3.15 - Lottery");
+  System.out.println(lotteryChecker());
+  System.out.println("3.19 - Perimeter of triangle");
+  System.out.println(triangleChecker());
+  System.out.println("3.21 - Science: Day of the week");
+  System.out.println(zellersChecker());
+  System.out.println("3.22 & 3.23 - Geometry: Point in a fixed circle and / or rectangle");
+  System.out.println(circleChecker());
+  System.out.println("3.24 - Random card picker");
+  System.out.println(cardPicker());
+  System.out.println("3.27 - Points in a triangle");
+  System.out.println(triangleAreaChecker());
   System.out.println("3.28 - Geometry: two rectangles");
   System.out.println(dualRectangleChecker());
   System.out.println("3.29 - Geometry: two circles");
@@ -376,7 +376,7 @@ public static String zellersChecker() {
     double c2x = input.nextDouble();
     double c2y = input.nextDouble();
     double c2radius = input.nextDouble();
-    
+
     // Simple pythagorus to determine distance of line
     double aSq = Math.pow((c1x - c2x), 2);
     double bSq = Math.pow((c1y - c2y), 2);
