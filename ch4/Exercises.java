@@ -4,12 +4,14 @@ public class Exercises {
 
   public static void main (String[] args) {
 
-    System.out.println("Exercise 4.1 - Geometry: Area of a pentagon");
-    System.out.println(pentagonArea());
-    System.out.println("Exercise 4.2 - Geometry: Great circle distance");
-    System.out.println(greatCircleDistance());
-    System.out.println("Exercise 4.6 - Random points on a circle");
-    System.out.println(randomPoints());
+    // System.out.println("Exercise 4.1 - Geometry: Area of a pentagon");
+    // System.out.println(pentagonArea());
+    // System.out.println("Exercise 4.2 - Geometry: Great circle distance");
+    // System.out.println(greatCircleDistance());
+    // System.out.println("Exercise 4.6 - Random points on a circle");
+    // System.out.println(randomPoints());
+    System.out.println("Exercise 4.7 - Points on a pentagon");
+    System.out.println(pentagonPoints());
   }
 
   public static String pentagonArea() {
@@ -58,6 +60,29 @@ public class Exercises {
     angle3 = Math.toDegrees(angle3);
 
     return "The three angles are: " + angle1 + " " + angle2 + " " + angle3;
+  }
+
+  public static String pentagonPoints() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please entre the radius of the circle");
+    double radius = input.nextDouble();
+    double x2 = radius * Math.cos(Math.toRadians(18));
+    double y2 = radius * Math.sin(Math.toRadians(18));
+    String coordinates2 = "\n(" + x2 + " , " + y2 + ")";
+    double x10 = x2 * -1;
+    double y10 = y2;
+    String coordinates10 = "\n(" + x10 + " , " + y10 + ")";
+    double x12 = 0.0;
+    double y12 = radius;
+    String coordinates12 = "\n(" + x12 + " , " + y12 + ")";
+    double x5 = radius * Math.cos(Math.toRadians(54));
+    double y5 = radius * Math.sin(Math.toRadians(54));
+    String coordinates5 = "\n(" + x5 + " , " + y5 + ")";
+    double x7 = x5;
+    double y7 = y5 * -1;
+    String coordinates7 = "\n(" + x7 + " , " + y7 + ")";
+
+    return "The coordinates of the 5 points of the pentagon are:\n" + coordinates2 + coordinates12 + coordinates10 + coordinates7 + coordinates5;
   }
 
   public static double pointDistance(double x1, double y1, double x2, double y2) {
