@@ -10,8 +10,67 @@ public class Exercises {
     // System.out.println(greatCircleDistance());
     // System.out.println("Exercise 4.6 - Random points on a circle");
     // System.out.println(randomPoints());
-    System.out.println("Exercise 4.7 - Points on a pentagon");
-    System.out.println(pentagonPoints());
+    // System.out.println("Exercise 4.7 - Points on a pentagon");
+    // System.out.println(pentagonPoints());
+    // System.out.println("Exercise 4.8 - Find the ASCII code");
+    // System.out.println(findASCII());
+    // System.out.println("Exercise 4.9 - Find the unicode");
+    // System.out.println(findUnicode());
+    System.out.println("Exercise 4.11 - Find the hex value");
+    System.out.println(findHex());
+    System.out.println("Exercise 4.13 - Vowel or consonant");
+    System.out.println(findVowel());
+  }
+
+
+  public static String findVowel() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter a letter");
+    char letter = input.next().charAt(0);
+    int code = (int) letter;
+    if (code < 65 || code > 122 || (code > 90 && code < 97)) {
+      return "Invalid input";
+    }
+    String type = "";
+
+    switch (code) {
+      case 97:
+      case 101:
+      case 105:
+      case 111:
+      case 117:
+      case 65:
+      case 69:
+      case 73:
+      case 79:
+      case 85: type = "vowel"; break;
+      default: type = "consonant";
+    }
+      return "The letter " + letter + " is a " + type;
+    
+  }
+
+  public static String findHex() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter a decimal value");
+    int decimal = input.nextInt();
+    String hexString = "The hex value is: ";
+    if (decimal < 0 || decimal > 15) {
+      return "Error: " + decimal + " is an invalid input";
+    } else if (decimal < 10 ) {
+      return hexString + decimal;
+    } else {
+      switch (decimal) {
+        case 10: return hexString + "A";
+        case 11: return hexString + "B";
+        case 12: return hexString + "C";
+        case 13: return hexString + "D";
+        case 14: return hexString + "E";
+        case 15: return hexString + "F";
+        default: return "Invalid input";
+      }
+    }
+
   }
 
   public static String pentagonArea() {
@@ -88,5 +147,21 @@ public class Exercises {
   public static double pointDistance(double x1, double y1, double x2, double y2) {
   double distance = Math.pow((Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)), 0.5);
   return distance;
+  }
+
+  public static String findASCII() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter a character");
+    char character = input.next().charAt(0);
+    int code = (int) character;
+    return "The code for: " + character + " is " + code;
+  }
+
+  public static String findUnicode() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter a number between 0 and 127");
+    int code = input.nextInt();
+    char character = (char) code;
+    return "The character for: " + code + " is " + character;
   }
 }
