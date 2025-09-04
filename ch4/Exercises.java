@@ -16,12 +16,43 @@ public class Exercises {
     // System.out.println(findASCII());
     // System.out.println("Exercise 4.9 - Find the unicode");
     // System.out.println(findUnicode());
-    System.out.println("Exercise 4.11 - Find the hex value");
-    System.out.println(findHex());
-    System.out.println("Exercise 4.13 - Vowel or consonant");
-    System.out.println(findVowel());
+    // System.out.println("Exercise 4.11 - Find the hex value");
+    // System.out.println(findHex());
+    // System.out.println("Exercise 4.13 - Vowel or consonant");
+    // System.out.println(findVowel());
+    System.out.println("Exercise 4.21 - Check SSN");
+    System.out.println(checkSSN());
   }
 
+  public static String checkSSN() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please input the SSN number in the format DDD-DD-DDDD, where D is a digit");
+    String SSN = input.nextLine();
+
+    if (SSN.length() != 11) {
+    System.out.println("Sorry - incorrect size. Please input the SSN number in the format DDD-DD-DDDD, where D is a digit");
+    }
+    
+    for (int i = 0; i < SSN.length(); i++) {
+      char ch = SSN.charAt(i);
+      
+      if (i == 3 || i == 6) {
+        
+        if (ch != '-') {
+          return "Invalid input - wrong format: " + SSN;
+         }
+      }
+
+      else {
+        if (!Character.isDigit(ch)) {
+        return "Invalid input - wrong format: " + SSN;
+          }
+        }
+      }
+
+      return SSN + " is a valid social security number";
+    }
+  
 
   public static String findVowel() {
     Scanner input = new Scanner(System.in);
