@@ -4,26 +4,71 @@ public class Exercises {
 
   public static void main (String[] args) {
 
-    // System.out.println("Exercise 4.1 - Geometry: Area of a pentagon");
-    // System.out.println(pentagonArea());
-    // System.out.println("Exercise 4.2 - Geometry: Great circle distance");
-    // System.out.println(greatCircleDistance());
-    // System.out.println("Exercise 4.6 - Random points on a circle");
-    // System.out.println(randomPoints());
-    // System.out.println("Exercise 4.7 - Points on a pentagon");
-    // System.out.println(pentagonPoints());
-    // System.out.println("Exercise 4.8 - Find the ASCII code");
-    // System.out.println(findASCII());
-    // System.out.println("Exercise 4.9 - Find the unicode");
-    // System.out.println(findUnicode());
-    // System.out.println("Exercise 4.11 - Find the hex value");
-    // System.out.println(findHex());
-    // System.out.println("Exercise 4.13 - Vowel or consonant");
-    // System.out.println(findVowel());
+    System.out.println("Exercise 4.1 - Geometry: Area of a pentagon");
+    System.out.println(pentagonArea());
+    System.out.println("Exercise 4.2 - Geometry: Great circle distance");
+    System.out.println(greatCircleDistance());
+    System.out.println("Exercise 4.6 - Random points on a circle");
+    System.out.println(randomPoints());
+    System.out.println("Exercise 4.7 - Points on a pentagon");
+    System.out.println(pentagonPoints());
+    System.out.println("Exercise 4.8 - Find the ASCII code");
+    System.out.println(findASCII());
+    System.out.println("Exercise 4.9 - Find the unicode");
+    System.out.println(findUnicode());
+    System.out.println("Exercise 4.11 - Find the hex value");
+    System.out.println(findHex());
+    System.out.println("Exercise 4.13 - Vowel or consonant");
+    System.out.println(findVowel());
     System.out.println("Exercise 4.21 - Check SSN");
     System.out.println(checkSSN());
     System.out.println("Exercise 4.22 - Check substring");
     System.out.println(checkSubstring());
+    System.out.println("Exercise 4.23 - Financial payroll");
+    financialPayroll();
+    System.out.println("Exercise 4.25 - Random Numberplate generator");
+    System.out.println(randomNumberPlate());
+  }
+
+  public static String randomNumberPlate() {
+    String number = "";
+    
+    for (int i = 0; i < 4; i ++) {
+      int numberCode = (int) (Math.random() * 10) + 48;
+      number += (char) numberCode;
+    }
+
+    String letters = "";
+
+    for (int i = 0; i < 3; i++){
+      int numberCode = (int) (Math.random() * 26) + 65;
+      letters += (char) numberCode;
+    }
+
+    return letters + "-" + number;
+  }
+
+  public static void financialPayroll() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter employee's name");
+    String name = input.nextLine();
+    System.out.println("Enter number of hours worked in a week");
+    double hours = input.nextDouble();
+    System.out.println("Please enter hourly rate");
+    double rate = input.nextDouble();
+    System.out.println("Please enter the federal tax rate as a decimal (e.g. 20% as 0.2)");
+    double fedTaxRate = input.nextDouble();
+    System.out.println("Please enter the state tax rate as a decimal (e.g. 20% as 0.2)");
+    double stateTaxRate = input.nextDouble();
+    double gross = hours * rate;
+    double stateTax = gross * stateTaxRate;
+    double fedTax = gross * fedTaxRate;
+    double totalTax = stateTax + fedTax;
+    double totalPay = gross - totalTax;
+
+    System.out.println("Payroll Statement\nEmployee: " + name + "\nHours worked: " + hours + "\nPay Rate: $" + rate + "\nGross pay: $" + gross);
+    System.out.println("Deductions: \n  Federal Tax (" + fedTaxRate * 100 + "%): $" + fedTax + "\n  State Tax (" + stateTaxRate * 100 + "%): $" + stateTax +"\n Total deduction: $" + totalTax);
+    System.out.println("Net Pay: $" + totalPay);
   }
 
   public static String checkSubstring() {
