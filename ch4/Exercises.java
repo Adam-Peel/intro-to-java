@@ -22,6 +22,22 @@ public class Exercises {
     // System.out.println(findVowel());
     System.out.println("Exercise 4.21 - Check SSN");
     System.out.println(checkSSN());
+    System.out.println("Exercise 4.22 - Check substring");
+    System.out.println(checkSubstring());
+  }
+
+  public static String checkSubstring() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter string 1");
+    String string1 = input.nextLine();
+    System.out.println("Please enter string 2");
+    String string2 = input.nextLine();
+
+    if (string1.contains(string2)) {
+      return string2 + " is a substring of " + string1;
+    } else {
+      return string2 + " is not a substring of " + string1;
+    }
   }
 
   public static String checkSSN() {
