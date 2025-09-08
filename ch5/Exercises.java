@@ -13,11 +13,47 @@ public class Exercises {
     // System.out.println(fiveAndSixDivider());
     // System.out.println("5.11 - Find numbers divisible by 5 OR 6, but NOT BOTH");
     // System.out.println(fiveOrSixDivider());
-    System.out.println("5.12 - Find the smallest n");
-    System.out.println(smallestN());
-    System.out.println("5.13 - Find the largest n");
-    System.out.println(largestN());
+    // System.out.println("5.12 - Find the smallest n");
+    // System.out.println(smallestN());
+    // System.out.println("5.13 - Find the largest n");
+    // System.out.println(largestN());
+    System.out.println("5.16 - Find the smallest factors of an integer");
+    System.out.println(smallestFactors());
   }
+
+  public static String smallestFactors() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter an integer");
+    int numberToFactor = input.nextInt();
+    String factors = "";
+    boolean endOfLoop;
+      
+    do {
+      endOfLoop = true;
+      for (int i = 2; i <= numberToFactor / 2; i++)
+      {
+        if (numberToFactor % i == 0) {
+          factors += "" + i + " ";
+          numberToFactor /= i;
+          endOfLoop = false;
+          break;
+        }
+      }
+    }
+    while (endOfLoop == false);  
+       
+    if (numberToFactor > 1) {
+      factors += numberToFactor + " ";
+    }    
+
+    if (factors.length() > 0) {
+      return factors;
+    } else {
+      return "The number is a prime";
+    }
+
+    }
+
 
   public static int smallestN() {
     int n = 100;
