@@ -7,7 +7,31 @@ public class Exercises {
 
     System.out.println("5.1 - Count positive and negative numbers and compute average");
     integerCount();
+    System.out.println("5.7 - Finance - compute future tuition");
+    System.out.println(futureTuition());
   }
+
+  public static String futureTuition() {
+    double fee = 10000;
+    double total = 0;
+    String calculation = "The tution fee in 10 years will be: £";
+
+    for (int i = 1; i < 15; i++) {
+      fee = fee * 1.05;
+
+      if (i == 10) {
+        String year10 = String.format("%.2f", fee);
+        calculation = calculation + year10;
+        continue;
+      } else if (i > 10) {
+        total = total + fee;
+      }
+    }
+
+    String finalTotal = String.format("%.2f", total);
+    return calculation + "\n The total fee for a programme starting in year 11 is: £" + finalTotal;
+    }
+
 
   public static void integerCount() {
     Scanner input = new Scanner(System.in);
@@ -48,4 +72,5 @@ public class Exercises {
     System.out.println("The average is: " + average);
     }
   }
+
 }
