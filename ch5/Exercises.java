@@ -5,10 +5,74 @@ public class Exercises {
 
   public static void main (String[] args) {
 
-    System.out.println("5.1 - Count positive and negative numbers and compute average");
-    integerCount();
-    System.out.println("5.7 - Finance - compute future tuition");
-    System.out.println(futureTuition());
+    // System.out.println("5.1 - Count positive and negative numbers and compute average");
+    // integerCount();
+    // System.out.println("5.7 - Finance - compute future tuition");
+    // System.out.println(futureTuition());
+    // System.out.println("5.10 - Find numbers divisible by 5 AND 6");
+    // System.out.println(fiveAndSixDivider());
+    // System.out.println("5.11 - Find numbers divisible by 5 OR 6, but NOT BOTH");
+    // System.out.println(fiveOrSixDivider());
+    System.out.println("5.12 - Find the smallest n");
+    System.out.println(smallestN());
+    System.out.println("5.13 - Find the largest n");
+    System.out.println(largestN());
+  }
+
+  public static int smallestN() {
+    int n = 100;
+    int nSquare = 0;
+
+    while (nSquare <= 12000){
+      nSquare = (int) Math.pow(++n, 2);
+    }
+
+    return n;
+  }
+
+  public static int largestN() {
+    int nCubed = 0;
+    int n = 20;
+
+    while (nCubed < 12000) {
+      nCubed = (int) Math.pow(++n, 3);
+    }
+
+    return n-1;
+  }
+
+  public static String fiveOrSixDivider() {
+    int NUMBER_PER_LINE = 10;
+    int numberCount = 0;
+    String numbers = "";
+    for (int i = 100; i < 1000; i++) {
+      if (i % 5 == 0 ^ i % 6 == 0) {
+        numberCount++;
+        if (numberCount % 10 == 0) {
+          numbers += i + "\n";
+        } else {
+          numbers += i + " ";
+        }
+      }
+    }
+    return numbers;
+  }
+
+  public static String fiveAndSixDivider() {
+    int NUMBER_PER_LINE = 10;
+    int numberCount = 0;
+    String numbers = "";
+    for (int i = 100; i < 1000; i++) {
+      if (i % 5 == 0 && i % 6 == 0) {
+        numberCount++;
+        if (numberCount % 10 == 0) {
+          numbers += i + "\n";
+        } else {
+          numbers += i + " ";
+        }
+      }
+    }
+    return numbers;
   }
 
   public static String futureTuition() {
