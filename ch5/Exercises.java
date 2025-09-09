@@ -19,6 +19,36 @@ public class Exercises {
     // System.out.println(largestN());
     System.out.println("5.16 - Find the smallest factors of an integer");
     System.out.println(smallestFactors());
+    System.out.println("5.17 - Display pyramid");
+    System.out.println(displayPyramid());
+  }
+
+  public static String displayPyramid() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter an integer from 1 to 15");
+    int lineWidth = input.nextInt();
+    String output = "";
+
+    for (int i = 1; i <= lineWidth; i++) {
+      for (int j = lineWidth; j > 1; j--){
+        if (j <= i) {
+          output += j;
+        } else {
+          output += " ";
+        }
+      }
+        output += "1";
+       for (int k = 2; k <= lineWidth; k++){
+        if (k <= i) {
+          output += k;
+        } else {
+          output += " ";
+        }
+      }
+      output += "\n";
+    }
+
+    return output;
   }
 
   public static String smallestFactors() {
