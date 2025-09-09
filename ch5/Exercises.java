@@ -17,10 +17,43 @@ public class Exercises {
     // System.out.println(smallestN());
     // System.out.println("5.13 - Find the largest n");
     // System.out.println(largestN());
-    System.out.println("5.16 - Find the smallest factors of an integer");
-    System.out.println(smallestFactors());
-    System.out.println("5.17 - Display pyramid");
-    System.out.println(displayPyramid());
+    // System.out.println("5.16 - Find the smallest factors of an integer");
+    // System.out.println(smallestFactors());
+    // System.out.println("5.17 - Display pyramid");
+    // System.out.println(displayPyramid());
+    System.out.println("5.19 - Display numbers pyramid"); // Must use nested for loop
+    System.out.println(displayNumbersPyramid());
+  }
+
+  public static String displayNumbersPyramid() {
+    String output = "";
+
+    for (int i = 1; i < 8; i++) {
+        int count = 1;
+      for (int j = 7; j > 0; j--) {
+       if (j <= i) {
+        output += count;
+        output += "  ";
+        count *= 2;
+       } else {
+        output += "  ";
+       }
+      }
+        output += count;
+        output += "  ";
+      for (int k = 1; k < 8; k++) {
+        if (k <= i) {
+        count /= 2;
+        output += count;
+        output += "  ";
+        } else {
+          output += "  ";
+        }
+      }
+      output += "\n";
+    }
+
+    return output;
   }
 
   public static String displayPyramid() {
