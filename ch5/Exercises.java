@@ -20,9 +20,29 @@ public class Exercises {
     // System.out.println("5.16 - Find the smallest factors of an integer");
     // System.out.println(smallestFactors());
     // System.out.println("5.17 - Display pyramid");
-    // System.out.println(displayPyramid());
-    System.out.println("5.19 - Display numbers pyramid"); // Must use nested for loop
-    System.out.println(displayNumbersPyramid());
+    // // System.out.println(displayPyramid());
+    // System.out.println("5.19 - Display numbers pyramid"); // Must use nested for loop
+    // System.out.println(displayNumbersPyramid());
+    System.out.println("5.21 - Finance - compare loans");
+    System.out.println(compareLoans());
+  }
+
+  public static String compareLoans() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter the loan amount");
+    double loan = input.nextDouble();
+    System.out.println("Please enter the number of years");
+    int years = input.nextInt();
+    String table = "Interest Rate  Monthly Payment  Total Payment\n";
+    // payment formula
+
+    for (double i = 5.000; i <= 8.000; i+= 1.0/8) {
+    double payment = (loan * ((i / 100 / 12) * Math.pow(1 + (i / 100 /12), 12 * years))) / (Math.pow(1 + (i / 100 /12), 12 * years) - 1);
+      table += i + "%    " + Math.round(payment * 100) / 100.0 + "           " + Math.round(payment * years * 12 * 100) / 100.0 + "\n";
+    }
+
+
+    return table;
   }
 
   public static String displayNumbersPyramid() {
