@@ -23,8 +23,35 @@ public class Exercises {
     // // System.out.println(displayPyramid());
     // System.out.println("5.19 - Display numbers pyramid"); // Must use nested for loop
     // System.out.println(displayNumbersPyramid());
-    System.out.println("5.21 - Finance - compare loans");
-    System.out.println(compareLoans());
+    // System.out.println("5.21 - Finance - compare loans");
+    // System.out.println(compareLoans());
+    System.out.println("5.25 - Compute PI");
+    System.out.println(computePI());
+    System.out.println("5.33 - Perfect number");
+    
+  }
+
+  public static String computePI() {
+    String piValues = "";
+    
+    for (int i = 10000; i <= 100000; i += 10000) {
+      piValues += "Value for: " + i + " " + piSeries(i) + "\n";
+    }  
+    return piValues;
+  }
+
+  public static double piSeries(int seriesLimit) {
+    double seriesValue = 0.0;
+    for (double i = 3.0, j = 1.0; i < seriesLimit; i += 2.0, j += 1.0) {
+      
+        if (j % 2 != 0)
+        {
+          seriesValue += (1.0/i);
+        } else {
+          seriesValue -= (1.0/i);
+        }
+    }
+  return 4.0 * (1.0 - seriesValue);
   }
 
   public static String compareLoans() {
