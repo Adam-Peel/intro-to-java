@@ -25,10 +25,28 @@ public class Exercises {
     // System.out.println(displayNumbersPyramid());
     // System.out.println("5.21 - Finance - compare loans");
     // System.out.println(compareLoans());
-    System.out.println("5.25 - Compute PI");
-    System.out.println(computePI());
+    // System.out.println("5.25 - Compute PI");
+    // System.out.println(computePI());
     System.out.println("5.33 - Perfect number");
-    
+    System.out.println(perfectNumber());
+  }
+
+  public static String perfectNumber() {
+    String numbersToPrint = "Perfect numbers are:";
+
+    for (int i = 2; i < 10000; i = i + 2) {
+     int sum = 0;
+      for (int k = 1; k <= i/2; k++){
+        if (i % k == 0){
+          sum += k;    
+        }
+      }
+
+      if (sum == i) {
+        numbersToPrint = numbersToPrint + " " + i + " -";
+      }
+    }
+    return numbersToPrint;
   }
 
   public static String computePI() {
