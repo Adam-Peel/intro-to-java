@@ -29,10 +29,59 @@ public class Exercises {
     // System.out.println(computePI());
     // System.out.println("5.33 - Perfect number");
     // System.out.println(perfectNumber());
-    System.out.println("5.37 - Decimal to Binary");
-    System.out.println(decToBin());
-    System.out.println("5.39 - Sales Calculator");
-    System.out.println(salesCalculator());
+    // System.out.println("5.37 - Decimal to Binary");
+    // System.out.println(decToBin());
+    // System.out.println("5.39 - Sales Calculator");
+    // System.out.println(salesCalculator());
+    System.out.println("5.45 - Mean and SD Calculator");
+    meanSDCalculator();
+  }
+
+  public static void meanSDCalculator() {
+    double num1, num2, num3, num4, num5, num6, num7, num8, num9, num10;
+    double sum = 0.0;
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter 10 numbers to calculate the mean and standard deviation");
+    
+    num1 = input.nextDouble();
+    sum += num1;
+    num2 = input.nextDouble();
+    sum += num2;
+    num3 = input.nextDouble();
+    sum += num3;
+    num4 = input.nextDouble();
+    sum += num4;
+    num5 = input.nextDouble();
+    sum += num5;
+    num6 = input.nextDouble();
+    sum += num6;
+    num7 = input.nextDouble();
+    sum += num7;
+    num8 = input.nextDouble();
+    sum += num8;
+    num9 = input.nextDouble();
+    sum += num9;
+    num10 = input.nextDouble();
+    sum += num10;
+    System.out.println("All numbers entered");
+
+    double mean = sum / 10.0;
+
+    double sdSum = 0.0;
+    sdSum += Math.pow(num1 - mean, 2);
+    sdSum += Math.pow(num2 - mean, 2);
+    sdSum += Math.pow(num3 - mean, 2);
+    sdSum += Math.pow(num4 - mean, 2);
+    sdSum += Math.pow(num5 - mean, 2);
+    sdSum += Math.pow(num6 - mean, 2);
+    sdSum += Math.pow(num7 - mean, 2);
+    sdSum += Math.pow(num8 - mean, 2);
+    sdSum += Math.pow(num9 - mean, 2);
+    sdSum += Math.pow(num10 - mean, 2);
+
+    double standardDev = Math.pow(sdSum / 9.0, 0.5);
+
+    System.out.printf("The mean is: %.2f, and the standard deviation is %.2f%n", mean, standardDev);
   }
 
   public static String salesCalculator() {
