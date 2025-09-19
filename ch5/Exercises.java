@@ -27,8 +27,28 @@ public class Exercises {
     // System.out.println(compareLoans());
     // System.out.println("5.25 - Compute PI");
     // System.out.println(computePI());
-    System.out.println("5.33 - Perfect number");
-    System.out.println(perfectNumber());
+    // System.out.println("5.33 - Perfect number");
+    // System.out.println(perfectNumber());
+    System.out.println("5.37 - Decimal to Binary");
+    System.out.println(decToBin());
+  }
+
+  public static String decToBin(){
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter a decimal integer");
+    int number = input.nextInt();
+    // do while loop
+    int binaryNum;
+    String binaryString = "";
+    do {
+      binaryNum = number % 2;
+      String tempString = "" + binaryNum; 
+      binaryString = tempString + binaryString;
+      number /= 2;
+    }
+    while (number != 0);
+
+    return binaryString;
   }
 
   public static String perfectNumber() {
