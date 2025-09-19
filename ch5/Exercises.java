@@ -31,7 +31,39 @@ public class Exercises {
     // System.out.println(perfectNumber());
     System.out.println("5.37 - Decimal to Binary");
     System.out.println(decToBin());
+    System.out.println("5.39 - Sales Calculator");
+    System.out.println(salesCalculator());
   }
+
+  public static String salesCalculator() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter the earnings target in whole pounds - e.g. 30000");
+    int target = input.nextInt();
+    int sales = 0;
+    double commission = 0.0;
+
+        // Increment sales until commission >= target
+        while (commission < target) {
+            sales += 1;
+            commission = calculateCommission(sales);
+        }
+
+        return "The total sales needed to hit a target of £" + target + " is £" + sales;
+    }
+
+    public static double calculateCommission(int salesAmount) {
+        double commission = 0.0;
+
+        if (salesAmount <= 5000) {
+            commission = salesAmount * 0.08;
+        } else if (salesAmount <= 10000) {
+            commission = 5000 * 0.08 + (salesAmount - 5000) * 0.10;
+        } else {
+            commission = 5000 * 0.08 + 5000 * 0.10 + (salesAmount - 10000) * 0.12;
+        }
+
+        return commission;
+    }
 
   public static String decToBin(){
     Scanner input = new Scanner(System.in);
