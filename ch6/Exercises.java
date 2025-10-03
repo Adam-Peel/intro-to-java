@@ -14,8 +14,66 @@ Scanner input = new Scanner(System.in);
   // System.out.println(convertMillis(555550000L));
   // primePalindromeChecker(100);
   // emirpChecker(100);
-  twinPrimes(1000);
+  // twinPrimes(1000);
+  System.out.println(creditCardChecker(4388576018410707L));
 }
+
+public static String creditCardChecker(long num) {
+  String errorMessage = "Invalid number";
+  
+  String numberString = String.valueOf(num);
+  System.out.println(numberString);
+  // Error checking number length
+  if (numberString.length() < 13 || numberString.length() > 16 ) {
+    System.out.println("Number the wrong length");
+  }
+
+  // Error checking first digits
+  if (!numberString.startsWith("37") && !numberString.startsWith("4") && !numberString.startsWith("5") && !numberString.startsWith("6")) { 
+    System.out.println(errorMessage);
+  } 
+
+  // Digit check
+
+  
+  int digitSum = 0;
+
+  // Use as string and convert char to int, or as long and use math division?
+
+    for (int i = numberString.length() - 1; i > 0; i-=2) {
+     
+      int digit = (int) numberString.charAt(i -1) - '0';
+      if (digit < 5) {
+        digitSum += (digit * 2);
+      } else {
+        digitSum += (digit * 2) % 10;
+        digitSum += 1;
+      }
+
+    }
+
+  System.out.println(digitSum);
+
+  int oddDigitSum = 0;
+
+  for (int j = numberString.length() - 1; j > 0; j -= 2) {
+    int oddDigit = (int) numberString.charAt(j) - '0';
+    oddDigitSum += oddDigit;
+  }
+
+  System.out.println(oddDigitSum);
+
+  String resultString = "Valid Number";
+  if ((digitSum + oddDigitSum) % 10 == 0) {
+    
+  } else {
+    resultString = "Invalid Number";
+  }
+
+  return resultString;
+  }
+
+
 
 public static void twinPrimes(int n) {
   String results = "";
@@ -253,5 +311,4 @@ public static void sumDigits() {
     return false;
    }
   }
-
 }
